@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class LogoSekolah extends Model
+{
+    use HasFactory;
+    protected $guarded = [''];
+
+
+
+    public function getLogoUtamaAttribute($value)
+    {
+       if ($value) {
+        return asset('/back/dist/img/logo-favicon/'.$value);
+       }else {
+        return asset('/back/dist/img/direktori/logo.png');
+       }
+    }
+    public function getLogoFaviconAttribute($value)
+    {
+       if ($value) {
+        return asset('/back/dist/img/logo-favicon/'.$value);
+       }else {
+        return asset('/back/dist/img/direktori/favicon.ico');
+       }
+    }
+
+}

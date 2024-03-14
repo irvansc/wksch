@@ -1,0 +1,18 @@
+@extends('back.layouts.pages-layouts')
+
+@section('pageTitle',isset($pageTitle) ? $pageTitle : 'Home')
+
+
+@section('header')
+  <div class="section-header">
+        <h1>Profile</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+            <div class="breadcrumb-item">Profile</div>
+        </div>
+    </div>
+@endsection
+
+@section('content')
+
+@endsection

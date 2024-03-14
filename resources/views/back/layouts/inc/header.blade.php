@@ -1,0 +1,1 @@
+@livewire('back.top-header')
