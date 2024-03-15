@@ -167,14 +167,29 @@ if (!function_exists('all_tags')) {
         ->join(',');
     }
 }
-if (!function_exists('file_size')) {
-    function size2Byte($file_size) {
-        $units = array('KB', 'MB', 'GB', 'TB');
-        $currUnit = '';
-        while (count($units) > 0  &&  $file_size > 1024) {
-            $currUnit = array_shift($units);
-            $file_size /= 1024;
+
+// PHP MAILER
+if (!function_exists('sendMail')) {
+    function sendMail($mailConfig){
+        $mail = new PHPMailer(true);
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->Host = env('EMAIL_HOST');
+        $mail->SMTPAuth = true;
+        $mail->Username = env('EMAIL_USERNAME');
+        $mail->Password = env('EMAIL_PASSWORD');
+        $mail->SMTPSecure = env('EMAIL_ENCRYPTION');
+        $mail->Port = env('EMAIL_PORT');
+        $mail->setFrom(env($mailConfig['mail_from_email']), $mailConfig['mail_from_name']);
+        $mail->addAddress($mailConfig['mail_recipient_email'], $mailConfig['mail_recipient_name']);
+        $mail->isHTML(true);
+        $mail->Subject = $mailConfig['mail_subject'];
+        $mail->Body = $mailConfig['mail_body'];
+
+        if ($mail->send()) {
+            return true;
+        }else{
+            return false;
         }
-        return ($file_size | 0) . $currUnit;
     }
 }

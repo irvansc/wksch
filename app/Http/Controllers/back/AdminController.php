@@ -53,10 +53,10 @@ class AdminController extends Controller
         }
     }
 
-    public function changeBlogLogo(Request $request)
+    public function changeWebLogo(Request $request)
     {
         $setting = LogoSekolah::find(1);
-        $logo_path = 'back/dist/img/logo-favicon/';
+        $logo_path = 'back/dist/img/logo/';
         $old_logo = $setting->getAttributes()['logo_utama'];
         $file = $request->file('logo_utama');
         $filename = rand(1, 100000) . 'logo.png';
@@ -75,11 +75,33 @@ class AdminController extends Controller
             }
         }
     }
-
-    public function changeBlogFavicon(Request $request)
+    public function changeEmailLogo(Request $request)
     {
         $setting = LogoSekolah::find(1);
-        $favicon_path = 'back/dist/img/logo-favicon/';
+        $logo_path = 'back/dist/img/logo/';
+        $old_logo = $setting->getAttributes()['logo_email'];
+        $file = $request->file('logo_email');
+        $filename = rand(1, 100000) . 'logo-email.png';
+        if ($request->hasFile('logo_email')) {
+            if ($old_logo != null  && File::exists(public_path($logo_path . $old_logo))) {
+                File::delete(public_path($logo_path . $old_logo));
+            }
+            $upload = $file->move(public_path($logo_path), $filename);
+            if ($upload) {
+                $setting->update([
+                    'logo_email' => $filename
+                ]);
+                return response()->json(['status' => 1, 'msg' => 'Logo Email has been successfuly updated.']);
+            } else {
+                return response()->json(['status' => 0, 'msg' => 'Something wrong!']);
+            }
+        }
+    }
+
+    public function changeWebFavicon(Request $request)
+    {
+        $setting = LogoSekolah::find(1);
+        $favicon_path = 'back/dist/img/logo/';
         $old_favicon = $setting->getAttributes()['logo_favicon'];
         $file = $request->file('logo_favicon');
         $filename = rand(1, 100000) . 'favicon.ico';

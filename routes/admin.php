@@ -34,8 +34,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/change-profile-picture-kepsek', [AdminController::class, 'changeProfilePictureKepsek'])->name('change-profile-picture-kepsek');
         Route::middleware(['isAdmin'])->group(function(){
             Route::view('/settings', 'back.pages.settings')->name('settings');
-            Route::post('/change-blog-logo', [AdminController::class, 'changeBlogLogo'])->name('change-blog-logo');
-            Route::post('/change-blog-favicon', [AdminController::class, 'changeBlogFavicon'])->name('change-blog-favicon');
+            Route::post('/change-web-logo', [AdminController::class, 'changeWebLogo'])->name('change-web-logo');
+            Route::post('/change-email-logo', [AdminController::class, 'changeEmailLogo'])->name('change-email-logo');
+            Route::post('/change-web-favicon', [AdminController::class, 'changeWebFavicon'])->name('change-web-favicon');
             Route::view('/admins', 'back.pages.admins')->name('admins');
 
             // IDENTITAS SEKOLAH

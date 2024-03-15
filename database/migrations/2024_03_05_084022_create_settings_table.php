@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('web_name')->nullable();
             $table->string('web_tagline')->nullable();
             $table->string('web_email')->nullable();
+            $table->string('web_email_noreply')->nullable();
             $table->string('web_telp')->nullable();
             $table->text('web_maps')->nullable();
             $table->text('web_desc')->nullable();

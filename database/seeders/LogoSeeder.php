@@ -16,6 +16,7 @@ class LogoSeeder extends Seeder
     {
         LogoSekolah::create([
             'logo_utama'=> null,
+            'logo_email'=> null,
             'logo_favicon'=> null,
         ]);
     }

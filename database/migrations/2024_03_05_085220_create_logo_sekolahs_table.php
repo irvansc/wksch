@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('logo_sekolahs', function (Blueprint $table) {
             $table->id();
             $table->string('logo_utama')->nullable();
-            $table->string('logo_backup')->nullable();
+            $table->string('logo_email')->nullable();
             $table->string('logo_favicon')->nullable();
             $table->timestamps();
         });

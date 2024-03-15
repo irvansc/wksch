@@ -15,15 +15,23 @@ class LogoSekolah extends Model
     public function getLogoUtamaAttribute($value)
     {
        if ($value) {
-        return asset('/back/dist/img/logo-favicon/'.$value);
+        return asset('/back/dist/img/logo/'.$value);
        }else {
         return asset('/back/dist/img/direktori/logo.png');
+       }
+    }
+    public function getLogoEmailAttribute($value)
+    {
+       if ($value) {
+        return asset('/back/dist/img/logo/'.$value);
+       }else {
+        return asset('/back/dist/img/direktori/logo-email.png');
        }
     }
     public function getLogoFaviconAttribute($value)
     {
        if ($value) {
-        return asset('/back/dist/img/logo-favicon/'.$value);
+        return asset('/back/dist/img/logo/'.$value);
        }else {
         return asset('/back/dist/img/direktori/favicon.ico');
        }

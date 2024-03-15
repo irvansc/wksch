@@ -174,9 +174,11 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="{{ webLogo()->logo_utama }}" alt="" title=""
-                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 480px;"
-                                                                            width="480" />
+                                                                            src="{{ webLogo()->logo_email }}" alt="" title=""
+                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode:
+                                                                            bicubic;clear: both;display: inline-block !important;border: none;height:
+                                                                            auto;float: none;width: 250px;max-width: 250px;"
+                                                                            width="250" />
 
                                                                     </td>
                                                                 </tr>

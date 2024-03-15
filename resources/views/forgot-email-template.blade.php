@@ -488,7 +488,7 @@
                                                             <tr>
                                                                 <td align="center"
                                                                     style="padding:0;Margin:0;padding-bottom:10px;font-size:0px">
-                                                                    <img src="/back/assets/img/stisla-fill.svg"
+                                                                    <img src="{{ webLogo()->logo_email }}"
                                                                         alt="Logo"
                                                                         style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;font-size:12px"
                                                                         width="200" title="Logo">
@@ -525,8 +525,9 @@
                                                             <tr>
                                                                 <td align="center"
                                                                     style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;font-size:0px">
-                                                                    <img src="{{ asset('back/email1.png') }}" alt
-                                                                        style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"
+                                                                    <img src="{{ webLogo()->logo_email }}" alt
+                                                                        style="display:block;border:0;outline:none;text-decoration:none;
+                                                                        -ms-interpolation-mode:bicubic"
                                                                         width="100">
                                                                 </td>
                                                             </tr>

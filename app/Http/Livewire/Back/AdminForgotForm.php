@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Back;
 
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -35,23 +36,20 @@ class AdminForgotForm extends Component
 
         $user = User::where('email', $this->email)->first();
         $link = route('admin.reset-form', ['token' => $token, 'email' => $this->email]);
-        $body_message = "We are received a request to reset password for <b>Larablog</b> account associated with"
-            . $this->email . ". <br> You cant reset password by clicking the button bellow";
-        $body_message .= "<br>";
-        $body_message .= '<a href="' . $link . '" target="_blank" style="color:#FFF; border-color:#22bc66;border-style:solid;
-        border-width:10px 180px; background-color:#22bc66;display:inline-block;text-decoration:none; border-radius:3px;
-        border-shadow:0 2px 3px rgba(0,0,0,0.16);-webkit-text-size-adjust:none; box-sizing:border-box">Reset Password</a>';
-        $body_message .= '<br>';
-        $body_message .= 'If did you request for a password reset, please ignore this email';
         $data = array(
             'name' => $user->name,
             'link' => $link,
             'email' => $this->email,
         );
 
+        $webs = Setting::all();
+        foreach ($webs as $web) {
+            $web_email = $web->web_email_noreply;
+            $web_name = $web->web_name;
+        }
 
-        Mail::send('forgot-email-template', $data, function ($message) use ($user) {
-            $message->from('noreplay@gmail.com', 'WkngSchool');
+        Mail::send('forgot-email-template', $data, function ($message) use ($web_email, $web_name, $user) {
+            $message->from($web_email,$web_name);
             $message->to($user->email, $user->name)->subject('Reset Password');
         });
         $this->email = null;

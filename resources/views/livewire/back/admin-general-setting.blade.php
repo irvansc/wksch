@@ -24,6 +24,13 @@
                     @enderror</span>
                 </div>
                 <div class="mb-3">
+                    <label for="name">Web Email noReply</label>
+                    <input type="email" class="form-control" placeholder="Enter web email noReply" wire:model='web_email_noreply'>
+                    <span class="text-danger">@error('web_email_noreply')
+                        {!!$message!!}
+                    @enderror</span>
+                </div>
+                <div class="mb-3">
                     <label for="name">Web Telp</label>
                     <input type="number" class="form-control" placeholder="Enter web telp" wire:model='web_telp'>
                     <span class="text-danger">@error('web_telp')

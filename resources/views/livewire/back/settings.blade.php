@@ -20,13 +20,13 @@
             </div>
             <div class="tab-pane" id="tab2">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h3>Set blog logo</h3>
+                    <div class="col-md-4">
+                        <h3>Set web logo</h3>
                         <div class="mb-2" style="max-width: 200px">
                             <img src="" alt="" class="img-thumbnail" id="logo-image-preview"
                                 data-ijabo-default-img="{{ webLogo()->logo_utama }}">
                         </div>
-                        <form action="{{ route('admin.change-blog-logo') }}" method="post"
+                        <form action="{{ route('admin.change-web-logo') }}" method="post"
                             id="changeBlogLogoForm">
                             @csrf
                             <div class="mb-2">
@@ -35,13 +35,28 @@
                             <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <h3>Set web email logo</h3>
+                        <div class="mb-2" style="max-width: 200px">
+                            <img src="" alt="" class="img-thumbnail" id="email-image-preview"
+                                data-ijabo-default-img="{{ webLogo()->logo_email }}">
+                        </div>
+                        <form action="{{ route('admin.change-email-logo') }}" method="post"
+                            id="changeWebEmailLogoForm">
+                            @csrf
+                            <div class="mb-2">
+                                <input type="file" name="logo_email" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
                         <h3>Set Favicon logo</h3>
                         <div class="mb-2" style="max-width: 100px">
                             <img src="" alt="" class="img-thumbnail" id="favicon-image-preview"
                                 data-ijabo-default-img="{{ webLogo()->logo_favicon }}">
                         </div>
-                        <form action="{{ route('admin.change-blog-favicon') }}" method="post"
+                        <form action="{{ route('admin.change-web-favicon') }}" method="post"
                             id="changeBlogFaviconForm">
                             @csrf
                             <div class="mb-2">

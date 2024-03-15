@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Back;
 
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -90,16 +91,22 @@ class Admin extends Component
             $author_email = $this->email;
             $author_name = $this->name;
 
+            $webs = Setting::all();
+            foreach ($webs as $web) {
+                $web_email = $web->web_email_noreply;
+                $web_name = $web->web_name;
+            }
+
             if ($saved) {
-                Mail::send('new-author-email-template', $data, function ($message) use ($author_email, $author_name) {
-                    $message->from(webInfo()->web_email, webInfo()->web_name);
+                Mail::send('new-author-email-template', $data, function ($message) use ($web_email, $web_name, $author_email, $author_name) {
+                    $message->from($web_email,$web_name);
                     $message->to($author_email, $author_name)
                         ->subject('Account creation.');
                 });
                 // $mail_body = view('new-author-email-template', $data)->render();
                 // $mailConfig = array(
                 //     'mail_from_email' => env('EMAIL_FROM_ADDRESS'),
-                //     'email_from_name' => env('EMAIL_FROM_NAME'),
+                //     'mail_from_name' => env('EMAIL_FROM_NAME'),
                 //     'mail_recipient_email' => $author_email,
                 //     'mail_recipient_name' => $author_name,
                 //     'mail_subject' => 'Account Creation',

@@ -9,7 +9,7 @@ class AdminGeneralSetting extends Component
 {
     public $settings;
 
-    public $web_name, $web_email, $web_telp, $web_tagline, $web_maps, $web_desc, $web_alamat;
+    public $web_name, $web_email, $web_email_noreply ,$web_telp, $web_tagline, $web_maps, $web_desc, $web_alamat;
 
     public function mount()
     {
@@ -18,6 +18,7 @@ class AdminGeneralSetting extends Component
         $this->web_tagline = $this->settings->web_tagline;
         $this->web_telp = $this->settings->web_telp;
         $this->web_email = $this->settings->web_email;
+        $this->web_email_noreply = $this->settings->web_email_noreply;
         $this->web_maps = $this->settings->web_maps;
         $this->web_alamat = $this->settings->web_alamat;
         $this->web_desc = $this->settings->web_desc;
@@ -30,6 +31,7 @@ class AdminGeneralSetting extends Component
         'web_tagline' => $this->web_tagline,
         'web_telp' => $this->web_telp,
         'web_email' => $this->web_email,
+        'web_email_noreply' => $this->web_email_noreply,
         'web_maps' => $this->web_maps,
         'web_alamat' => $this->web_alamat,
         'web_desc' => $this->web_desc,
