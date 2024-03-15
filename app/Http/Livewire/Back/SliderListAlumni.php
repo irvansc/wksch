@@ -33,7 +33,7 @@ class SliderListAlumni extends Component
         $this->img = null;
         $this->name = null;
         $this->desc = null;
-        $this->action = null;
+        $this->oldImg = null;
     }
     public function addSliderAlumni()
     {
@@ -97,14 +97,17 @@ class SliderListAlumni extends Component
             $path = "images/album/slider/alumni/";
             if ($photo != null && Storage::disk('public')->exists($path . $photo)) {
                 Storage::disk('public')->delete($path . $photo);
-
+                if (Storage::disk('public')->exists($path . 'thumbnails/resized_' . $photo)) {
+                    Storage::disk('public')->delete($path . 'thumbnails/resized_' . $photo);
+                }
             }
             $file = $this->img;
             $filename = $file->getClientOriginalName();
             $new_filename = time() . '' . $filename;
             $img = ImageManagerStatic::make($this->img)->encode('jpg');
             $file = Storage::disk('public')->put($path . $new_filename, $img);
-
+            Image::make(storage_path('app/public/' . $path . $new_filename))
+            ->fit(315, 315)->save(storage_path('app/public/' . $path . 'thumbnails/' . 'resized_' . $new_filename));
 
             $updated =  $foto->update([
                 'desc' => $this->desc,
@@ -123,7 +126,6 @@ class SliderListAlumni extends Component
             $updated =  $foto->update([
                 'desc' => $this->desc,
                 'name' => $this->name,
-                'img' => $this->oldImg
             ]);
             if ($updated) {
                 $this->dispatchBrowserEvent('hideSliderAlumniModal');

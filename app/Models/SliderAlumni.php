@@ -13,7 +13,7 @@ class SliderAlumni extends Model
     public function getImgAttribute($value)
     {
        if ($value) {
-        return asset('/storage/images/album/slider/alumni/thumbnails\resized_'.$value);
+        return asset('/storage/images/album/slider/alumni/thumbnails/resized_'.$value);
        }else {
         return asset('/back/dist/img/direktori/slider_alumni.png');
        }

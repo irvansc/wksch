@@ -110,8 +110,9 @@
 @push('scripts')
 <script src="{{ asset('back/vendor/datepicker/jquery.datetimepicker.full.min.js') }}"></script>
 <script type="text/javascript">
-    jQuery('#datepicker').datetimepicker({
+    jQuery('#datepicker').datepicker({
             timepicker:false,
+            format: 'yyyy-mm-dd'
         });
 </script>
 @endpush

@@ -127,7 +127,7 @@ class GuruController extends Controller
                 $guru = Guru::find($request->guru_id);
                 $guru->name = $request->name;
                 $guru->jenkel = $request->jenkel;
-                $guru->tgl_lahir = Carbon::parse($request->tgl_lahir);
+                $guru->tgl_lahir = $request->tgl_lahir;
                 $guru->nip = $request->nip;
                 $guru->gtk = $request->gtk;
                 $guru->alamat = $request->alamat;

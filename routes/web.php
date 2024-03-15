@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\front\ArticleController;
 use App\Http\Controllers\front\EventController;
+use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\PengumumanController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,9 +37,9 @@ Route::get('/search',[ArticleController::class,'searchBlog'])->name('search_post
 Route::view('/pengumuman', 'front.pages.pengumuman')->name('pengumuman');
 Route::get('/pengumuman/{any}',[PengumumanController::class,'readPengumuman'])->name('read_announcement');
 Route::view('/agenda', 'front.pages.agenda')->name('agenda');
+Route::get('events/lis', [EventController::class, 'listEvent'])->name('events.lis');
 Route::resource('events', EventController::class);
-Route::get('events/list', [EventController::class, 'listEvent'])->name('events.list');
-
+Route::get('folders/{filename}/download', [HomeController::class, 'download'])->name('folders.downloads');
 // ALUMNI
 
 Route::view('/alumni-form', 'front.pages.alumni-form')->name('alumni-form');
@@ -49,5 +50,5 @@ Route::view('/foto', 'front.pages.foto')->name('foto');
 Route::view('/video', 'front.pages.video')->name('video');
 Route::view('/contact', 'front.pages.contact')->name('contact');
 Route::view('/about', 'front.pages.about')->name('about');
-
+route::view('/download','front.pages.download')->name('download');
 

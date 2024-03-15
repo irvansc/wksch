@@ -142,7 +142,7 @@
                               <dt class="col-5">NIS :</dt>
                               <dd class="col-7">{{ $alumni->nis }}</dd>
                               <dt class="col-5">Tanggal Lahir :</dt>
-                              <dd class="col-7">{{ $alumni->tgl_lahir }}</dd>
+                              <dd class="col-7">{{ Illuminate\Support\Carbon::parse( $alumni->tgl_lahir)->translatedFormat('l, d F Y') }}</dd>
                               <dt class="col-5">E-mail :</dt>
                               <dd class="col-7">{{ $alumni->email }}</dd>
                               <dt class="col-5">WhatsAap :</dt>

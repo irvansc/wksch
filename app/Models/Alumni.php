@@ -29,8 +29,8 @@ class Alumni extends Model
        }
     }
 
-    public function getTglLahirAttribute(){
-        return Carbon::parse($this->attributes['tgl_lahir'])
-        ->translatedFormat('l, d F Y');
-    }
+    // public function getTglLahirAttribute(){
+    //     return Carbon::parse($this->attributes['tgl_lahir'])
+    //     ->translatedFormat('l, d F Y');
+    // }
 }

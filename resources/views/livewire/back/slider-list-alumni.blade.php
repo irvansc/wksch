@@ -34,7 +34,6 @@
                                     <th>Img</th>
                                     <th>Nama Alumni</th>
                                     <th>Deskripsi</th>
-                                    <th>Button Action</th>
                                     <th class="w-1"></th>
                                 </tr>
                             </thead>
@@ -51,9 +50,6 @@
                                         {{ $slid->desc }}
                                     </td>
                                     <td>
-                                        {{ $slid->action }}
-                                    </td>
-                                    <td>
                                         <div class="btn-group">
                                             <a href="#" wire:click.prevent='editSlide({{$slid->id}})'
                                                 class="btn btn-sm btn-primary">Edit</a> &nbsp;
@@ -65,7 +61,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="3"><span class="text-danger">Slider Prestasi Not Found!</span></td>
+                                    <td colspan="3"><span class="text-danger">Slider Alumni Not Found!</span></td>
                                 </tr>
                                 @endforelse
                             </tbody>
@@ -110,7 +106,7 @@
                         @if ($oldImg)
                         <div class="mb-3">
                             <label for="">Old Image :</label>
-                            <img src="storage/images/album/slider/alumni/{{ $oldImg}}" alt="" style="width: 200px">
+                            <img src="{{$oldImg}}" alt="" style="width: 200px">
                         </div>
                         @endif
                         @if ($img)

@@ -78,6 +78,7 @@
                         <a class="dropdown-item" href="{{ route('alumni') }}">Direktori Alumni</a>
                         <a class="dropdown-item" href="{{ route('guru') }}">Direktori guru</a>
                         <a class="dropdown-item" href="{{ route('siswa') }}">Direktori Siswa</a>
+                        <a class="dropdown-item" href="{{ route('download') }}">Direktori File</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown

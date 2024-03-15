@@ -138,7 +138,7 @@
                           <dt class="col-5">Alamat :</dt>
                           <dd class="col-7">{{ $guru->alamat }}</dd>
                           <dt class="col-5">Tanggal Lahir :</dt>
-                          <dd class="col-7">{{ $guru->tgl_lahir }}</dd>
+                          <dd class="col-7">{{ Illuminate\Support\Carbon::parse( $guru->tgl_lahir)->translatedFormat('l, d F Y')  }}</dd>
                           <dt class="col-5">GTK :</dt>
                           <dd class="col-7">{{ $guru->gtk }}</dd>
                           <dt class="col-5">Picture :</dt>

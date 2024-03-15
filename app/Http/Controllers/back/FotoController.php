@@ -40,9 +40,6 @@ class FotoController extends Controller
                 }
                 Foto::insert($insert);
             }
-            return redirect()->back();
+            return redirect()->route('admin.album-foto')->with(['success' => 'Foto berhasil disimpan']);
     }
-
-
-
 }

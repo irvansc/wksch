@@ -95,7 +95,7 @@
                     </div>
                     <div class="image_holder mb-2" style="max-width: 250px">
                         <img src="" alt="" class="img-thumbnail" id="image-previewer"
-                            data-ijabo-default-img="storage/images/siswa_images/thumbnails/resized_{{$siswa->img}}">
+                            data-ijabo-default-img="{{$siswa->img}}">
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
@@ -113,8 +113,9 @@
 @push('scripts')
 <script src="{{ asset('back/vendor/datepicker/jquery.datetimepicker.full.min.js') }}"></script>
 <script type="text/javascript">
-    jQuery('#datepicker').datetimepicker({
+     jQuery('#datepicker').datepicker({
             timepicker:false,
+            format: 'yyyy-mm-dd'
         });
 </script>
 @endpush

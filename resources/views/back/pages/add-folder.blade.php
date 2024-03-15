@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="">All folder</a>
+                        <a href="{{ route('admin.folders') }}">All folder</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
                         Add new folder

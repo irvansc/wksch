@@ -135,7 +135,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             // INBOX
             Route::view('inbox', 'back.pages.inbox')->name('inbox');
 
-            Route::get('events/list', [EventController::class, 'listEvent'])->name('events.list');
+            Route::get('events/list', [EventController::class, 'listEvents'])->name('events.list');
             Route::resource('events', EventController::class);
         });
 

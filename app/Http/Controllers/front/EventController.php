@@ -15,6 +15,7 @@ class EventController extends Controller
     {
         return view('front.pages.agenda');
     }
+
     public function listEvent(Request $request)
     {
         $start = date('Y-m-d', strtotime($request->start));

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-5 col-md-12 footer-info">
-                    <a href="index.html" class="logo d-flex align-items-center">
+                    <a href="/" class="logo d-flex align-items-center">
                         <img src="{{ webLogo()->logo_utama }}" alt="" />
                     </a>
 
@@ -28,26 +28,26 @@
                             <i class="bi bi-chevron-right"></i> <a href="/">Home</a>
                         </li>
                         <li>
-                            <i class="bi bi-chevron-right"></i> <a href="">About</a>
+                            <i class="bi bi-chevron-right"></i> <a href="{{ route('about') }}">About</a>
                         </li>
                         <li>
-                            <i class="bi bi-chevron-right"></i> <a href="">Contact</a>
-                        </li>
-                        <li>
-                            <i class="bi bi-chevron-right"></i>
-                            <a href="">Visi-Misi</a>
+                            <i class="bi bi-chevron-right"></i> <a href="{{ route('contact') }}">Contact</a>
                         </li>
                         <li>
                             <i class="bi bi-chevron-right"></i>
-                            <a href="">Sejarah</a>
+                            <a href="{{ route('visi-misi') }}">Visi-Misi</a>
                         </li>
                         <li>
                             <i class="bi bi-chevron-right"></i>
-                            <a href="">Galery</a>
+                            <a href="{{ route('sejarah-sekolah') }}">Sejarah</a>
                         </li>
                         <li>
                             <i class="bi bi-chevron-right"></i>
-                            <a href="">Blog</a>
+                            <a href="{{ route('foto') }}">Galery</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-chevron-right"></i>
+                            <a href="{{ route('article') }}">Article</a>
                         </li>
                     </ul>
                 </div>
@@ -58,25 +58,25 @@
                         <li><i class="bi bi-chevron-right"></i> <a href="">Guru</a></li>
                         <li>
                             <i class="bi bi-chevron-right"></i>
-                            <a href="">Siswa</a>
+                            <a href="{{ route('siswa') }}">Siswa</a>
                         </li>
                         <li>
                             <i class="bi bi-chevron-right"></i>
-                            <a href="">Pengumuman</a>
+                            <a href="{{ route('pengumuman') }}">Pengumuman</a>
                         </li>
                         <li>
-                            <i class="bi bi-chevron-right"></i> <a href="">Agenda</a>
+                            <i class="bi bi-chevron-right"></i> <a href="{{ route('agenda') }}">Agenda</a>
                         </li>
                         <li>
                             <i class="bi bi-chevron-right"></i>
-                            <a href="">Download</a>
+                            <a href="{{ route('download') }}">Download</a>
                         </li>
 
-                        <li>
+                        {{-- <li>
                             <i class="bi bi-chevron-right"></i>
                             <a onclick="">PPDB <span class="badge badge-success">DIBUKA!</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
 

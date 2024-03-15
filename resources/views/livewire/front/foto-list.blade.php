@@ -23,7 +23,7 @@
                   <div class="col-sm-2 col-lg-2 mb-2">
                     <div class="card card-sm">
                       <a href="storage/images/album/foto/{{ $foto->img }}" class="d-block" data-id="{{ $foto->id }}" data-fancybox="gallery" data-caption="{{ $foto->title }}">
-                        <img src="storage/images/album/foto/thumbnails/thumb_{{ $foto->img }}" class="card-img-top">
+                        <img src="storage/images/album/foto/{{ $foto->img }}" class="card-img-top">
                         </a>
                     </div>
                 </div>

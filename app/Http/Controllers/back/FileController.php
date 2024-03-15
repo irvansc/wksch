@@ -18,9 +18,6 @@ class FileController extends Controller
 
     public function storeFolder(Request $request)
     {
-
-        // dd($request->all());
-
         $request->validate([
             'title' => 'required|unique:folders,title',
             'file_name' => 'required|max:10240'
@@ -43,7 +40,7 @@ class FileController extends Controller
                 $folder->file_size = $request->file('file_name')->getSize();
                 $saved = $folder->save();
                 if ($saved) {
-                    return response()->json(['code' => 1, 'msg' => 'New Post has been successfuly created.']);
+                    return response()->json(['code' => 1, 'msg' => 'New File has been successfuly created.']);
                 } else {
                     return response()->json(['code' => 3, 'msg' => 'Something went wrong!']);
                 }
@@ -62,9 +59,7 @@ class FileController extends Controller
         }else{
             return response()->download(storage_path("app/public/folders/") . $request->filename);
         }
-
     }
-
     public function editFolder(Request $request) {
 
         if (!request()->folder_id) {
@@ -112,7 +107,7 @@ class FileController extends Controller
                 $folder->file_size = $request->file('file_name')->getSize();
                 $saved = $folder->save();
                 if ($saved) {
-                    return response()->json(['code' => 1, 'msg' => 'Folder has been successfuly updated.']);
+                    return response()->json(['code' => 1, 'msg' => 'File has been successfuly updated.']);
                 } else {
                     return response()->json(['code' => 3, 'msg' => 'Something went wrong, for updating Folder.']);
                 }
@@ -130,7 +125,7 @@ class FileController extends Controller
             $folder->file_ket = $request->file_ket;
             $saved = $folder->save();
             if ($saved) {
-                return response()->json(['code' => 1, 'msg' => 'Folder has been successfuly updated.']);
+                return response()->json(['code' => 1, 'msg' => 'File has been successfuly updated.']);
             } else {
                 return response()->json(['code' => 3, 'msg' => 'Something went wrong, for updating Folder.']);
             }

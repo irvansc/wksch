@@ -550,7 +550,7 @@ div.nav-item  .active{
     line-height: 28px;
 }
 
-.btn.btn-utamar {
+.btn .btn-utamar {
     background-color: #15477a;
     color: #f2c808;
     text-transform: uppercase;
@@ -567,7 +567,7 @@ div.nav-item  .active{
     -o-border-radius: 50px;
 }
 
-.btn.btn-utamar:hover {
+.btn .btn-utamar:hover {
     background-color: #0c365f;
 }
 
@@ -594,7 +594,7 @@ div.nav-item  .active{
         font-family: Raleway, sans-serif;
         margin-bottom: 5px;
     }
-    .btn.btn-utamar {
+    .btn .btn-utamar {
         background-color: #15477a;
         color: #f2c808;
         text-transform: uppercase;
@@ -610,7 +610,7 @@ div.nav-item  .active{
         -ms-border-radius: 50px;
         -o-border-radius: 50px;
     }
-    .btn.btn-utamar:hover {
+    .btn .btn-utamar:hover {
         background-color: #0c365f;
     }
 }

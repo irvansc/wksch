@@ -16,7 +16,7 @@ class EventController extends Controller
     {
         return view('back.pages.event');
     }
-    public function listEvent(Request $request)
+    public function listEvents(Request $request)
     {
         $start = date('Y-m-d', strtotime($request->start));
         $end = date('Y-m-d', strtotime($request->end));

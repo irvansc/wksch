@@ -42,8 +42,10 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="brand" style="display: flex; align-items: center">
-                    <img src="{{ webLogo()->logo_utama }}" alt="{{webInfo()->web_name }}"
-                    style="width: 100px"  />
+                    <a href="/">
+                        <img src="{{ webLogo()->logo_utama }}" alt="{{webInfo()->web_name }}"
+                        style="width: 100px"  />
+                    </a>
                     <div class="brand-name">
                         <h1>{{webInfo()->web_name }}</h1>
                         <h3>{{ webInfo()->web_tagline }}</h3>

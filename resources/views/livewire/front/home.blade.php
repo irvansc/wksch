@@ -15,7 +15,7 @@
                 <h2>{!! $slider->desc !!}</h2>
                 <p>{{ $slider->title }}</p>
                 @if ($slider->action != null)
-                <a href="{{ $slider->action }}" class="btn btn-utama">{{ $slider->action_title }}</a>
+                <a href="{{ $slider->action }}" class="btn btn-utamar" style="font-size:12px">{{ $slider->action_title }}</a>
                 @else
 
                 @endif
@@ -38,7 +38,7 @@
             <div class="col-md-6">
                 <div class="video-wrapper">
                     <div class="embed-responsive embed-responsive-16by9">
-                        @if ($kepala->url_video == null)
+                        @if (!kepSek()->url_video)
                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/mCaMibzEtrI?si=cNnQJwrxMMZojoTa"></iframe>
                         @else
                         <iframe class="embed-responsive-item" src="{{ $kepala->video_url }}"></iframe>
@@ -131,7 +131,7 @@
 
         </div>
         <div class="tombol-selengkapnya mt-3">
-            <a href="" class="btn btn-more">Lihat Prestasi Lainnya</a>
+            <a href="{{ route('prestasi-sekolah') }}" class="btn btn-more">Lihat Prestasi Lainnya</a>
         </div>
     </div>
 </section>
@@ -249,7 +249,7 @@
 
                         <a href="storage/images/album/foto/{{ $foto->img }}" data-lightbox="models"
                             data-title="{{ $foto->title }}">
-                            <li><img src="storage/images/album/foto/thumbnails/thumb_{{ $foto->img }}" alt="">
+                            <li><img src="storage/images/album/foto/{{ $foto->img }}" alt="">
                             </li>
                         </a>
                         @endforeach

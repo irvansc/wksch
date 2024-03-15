@@ -27,7 +27,7 @@
 @endsection
 
 @push('scripts')
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
+<script src='/back/vendor/fullcalendar/dist/index.global.min.js'></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -38,7 +38,7 @@
                     right: 'today,listWeek'
                 },
             locale: '{{ config('app.locale') }}',
-            events: `{{ route('events.list') }}`,
+            events: `{{ route('events.lis') }}`,
 
             });
             calendar.render();
