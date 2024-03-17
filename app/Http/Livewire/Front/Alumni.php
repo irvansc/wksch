@@ -15,7 +15,7 @@ class Alumni extends Component
     public $search = null;
     public function render()
     {
-        $alumnis  = ModelsAlumni::search($this->search)->orderBy('created_at','desc')->
+        $alumnis  = ModelsAlumni::where('isActive','=', 1)->search($this->search)->orderBy('created_at','desc')->
         paginate($this->perPage);
         return view(
             'livewire.front.alumni',

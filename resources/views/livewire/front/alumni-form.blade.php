@@ -183,7 +183,7 @@
                                             </span>
                                         @enderror
                                         @if ($img)
-                                        <img src="{{ $img->temporaryUrl() }}"  class="img-thumbnails mt-2">
+                                        <img src="{{ $img->temporaryUrl() }}"  class="img-thumbnails mt-2" style="width: 200px">
                                     @endif
                                     </div>
                                 </div>

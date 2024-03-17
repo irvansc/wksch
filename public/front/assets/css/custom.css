@@ -442,6 +442,26 @@ div.nav-item  .active{
     font-size: 18px;
 }
 
+.slideutama .btn-slideutama {
+    background-color: #15477a;
+    color: #f2c808;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    margin-top: 10px;
+}
+.slideutama .btn-slideutama:hover {
+    background-color: #0c365f;
+}
 
 /* HP */
 
@@ -503,13 +523,13 @@ div.nav-item  .active{
         font-family: Raleway, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
     #hero-area .slider-item-content h2 {
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 500;
     }
     #hero-area .slider-item-content p {
         font-size: 7px;
     }
-    #hero-area .slider-item-content button {
+    #hero-area .slider-item-content a {
         background-color: #15477a;
         color: #f2c808;
         text-transform: uppercase;
@@ -519,7 +539,28 @@ div.nav-item  .active{
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 10px;
+        font-size: 1rem;
+    }
+    .slideutama .btn-slideutama {
+        background-color: #15477a;
+        color: #f2c808;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+        -moz-transition: background-color 0.3s;
+        -ms-transition: background-color 0.3s;
+        -o-transition: background-color 0.3s;
+        border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        -ms-border-radius: 30px;
+        -o-border-radius: 30px;
+        margin-top: 10px;
+        font-size: 100px;
+    }
+    .slideutama .btn-slideutama:hover {
+        background-color: #0c365f;
     }
 }
 
@@ -3047,3 +3088,4 @@ a.post-title-sm:hover {
 
 
 /* TERE */
+

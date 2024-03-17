@@ -74,6 +74,12 @@ class AlumniForm extends Component
         $new_filename = time() . '' . $filename;
         $img = ImageManagerStatic::make($this->img)->encode('jpg');
         $file = Storage::disk('public')->put($path . $new_filename, $img);
+
+        $alumni = $path . 'thumbnails';
+        if (!Storage::disk('public')->exists($alumni)) {
+            Storage::disk('public')->makeDirectory($alumni, 0755, true, true);
+        }
+
         Image::make(storage_path('app/public/' . $path . $new_filename))
         ->fit(315, 315)->save(storage_path('app/public/' . $path . 'thumbnails/' . 'resized_' . $new_filename));
 

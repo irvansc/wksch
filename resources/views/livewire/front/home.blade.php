@@ -1,7 +1,7 @@
 <div>
     <!-- hero -->
 
-    <section id="hero-area">
+    <section id="hero-area" class="slideutama">
         <div id="slider-hero-nav"></div>
         <div class="owl-carousel" id="slider-hero">
             @foreach ($su as $slider)
@@ -12,10 +12,10 @@
                 </div>
                 @if ($slider->title != null)
                 <div class="slider-item-content">
-                    <h2>{!! $slider->desc !!}</h2>
-                    <p>{{ $slider->title }}</p>
-                    @if ($slider->action != null)
-                    <a href="{{ $slider->action }}" class="btn btn-utamar" style="font-size:12px">{{
+                    <h2>{{ $slider->title  }}</h2>
+                    <p>{{ $slider->desc }}</p>
+                    @if ($slider->action_title != null)
+                    <a href="{{ $slider->action }}" class="btn btn-slideutama" style="font-size:12px">{{
                         $slider->action_title }}</a>
                     @else
 
@@ -51,12 +51,12 @@
                 <div class="col-md-6 mt-5 sambutan">
                     <h2>Sambutan Kepala Sekolah</h2>
                     <p>
-                        {!! Str::limit(kepSek()->desc, 200, '...') !!}
+                        {!! Str::limit(kepSek()->desc, 500, '...') !!}
                     </p>
                     <style>
 
                     </style>
-                    <a href="{{ route('about') }}" class="btn  btn-sambutan" style="margin-top: 30px;">Read More</a>
+                    <a href="{{ route('about') }}" class="btn btn-sambutan" style="margin-top: 30px;">Read More</a>
                 </div>
             </div>
         </div>
@@ -123,13 +123,14 @@
                         <img src="storage/images/album/slider/prestasi/{{ $item->img }}" alt="" />
                     </div>
 
-                    @if ($item->desc == null)
-
+                    @if (!$item->desc)
+                        {{-- kosong --}}
                     @else
                     <div class="item-content">
-                        <h2>{{ $item->desc }}</h2>
-                        @if ($item->action == null)
-
+                        <h2>{{ $item->title }}</h2>
+                        <p>{{ $item->desc }}</p>
+                        @if (!$item->action_title)
+                        {{-- Kosong --}}
                         @else
                         <a href="{{ $item->action }}" class="btn btn-utamar">{{ $item->action_title }}</a>
                         @endif
