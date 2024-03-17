@@ -75,6 +75,10 @@ class ArticleController extends Controller
                 ->with('author')
                 ->first();
 
+            if (!$posts) {
+                return abort(404);
+            }
+
             $posts_tags = explode(',', $posts->post_tags);
             $related_post = Post::where('id', '!=', $posts->id)
                 ->where(function ($query) use ($posts_tags, $posts) {
