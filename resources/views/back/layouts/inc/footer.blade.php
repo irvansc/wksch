@@ -3,9 +3,9 @@
         <div class="row text-center align-items-center flex-row-reverse">
             <div class="col-lg-auto ms-lg-auto">
                 <ul class="list-inline list-inline-dots mb-0">
-                    <li class="list-inline-item"><a href="/back/assets/docs/index.html"
+                    <li class="list-inline-item"><a href="{{ route('admin.documentation') }}"
                             class="link-secondary">Documentation</a></li>
-                    <li class="list-inline-item"><a href="/back/assets/license.html" class="link-secondary">License</a>
+                    <li class="list-inline-item"><a href="{{ route('admin.licensi') }}" class="link-secondary">License</a>
                     </li>
                 </ul>
             </div>
@@ -16,7 +16,7 @@
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        <a href="/" class="link-secondary">WKNG PROJECT</a>.
+                        <a href="/" class="link-secondary">{{ webInfo()->web_name }}</a>.
                         All rights reserved.
                     </li>
                     <li class="list-inline-item">

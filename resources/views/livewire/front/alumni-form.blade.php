@@ -1,4 +1,5 @@
 <div>
+    @livewire('front.ppdb-banner')
     <section class="form-alumni" id="form-alumni">
         <div class="container">
             <div class="section-title">

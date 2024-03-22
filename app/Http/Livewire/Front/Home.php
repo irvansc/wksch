@@ -7,17 +7,15 @@ use App\Models\Foto;
 use App\Models\Guru;
 use App\Models\KepalaSekolah;
 use App\Models\Post;
-use App\Models\Setting;
-use App\Models\Siswa;
 use App\Models\SliderAlumni;
 use App\Models\SliderPrestasi;
 use App\Models\SliderUtama;
-use App\Models\Video;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Home extends Component
 {
+
     public function render()
     {
 

@@ -274,6 +274,9 @@
                                     <a href="{{ route('admin.slider-alumni') }}" class="dropdown-item">Slider Alumni</a>
                                 </div>
                             </div>
+                            <a class="dropdown-item" href="{{ route('admin.ppdb-banner') }}">
+                                PPDB Banner
+                            </a>
                         </div>
                     </li>
                     @endif

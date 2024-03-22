@@ -1,4 +1,5 @@
 <div>
+    @livewire('front.ppdb-banner')
     <!-- content -->
     <section id="pengumuman" class="pengumuman">
         <div class="container" data-aos="fade-up">

@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\back;
+
 use App\Http\Controllers\Controller;
 use App\Models\KepalaSekolah;
 use App\Models\LogoSekolah;
 use App\Models\Post;
+use App\Models\PpdbBanner;
+use App\Models\PpdbBannerSecond;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -326,6 +329,122 @@ class AdminController extends Controller
             return response()->json(['status' => 1, 'msg' => 'Your picture has been successfully updated.']);
         } else {
             return response()->json(['status' => 0, 'msg' => 'Something went wrong, try again later']);
+        }
+    }
+
+
+    public function editBanner(Request $request)
+    {
+        $id = $request->id;
+        $emp = PpdbBannerSecond::find($id);
+        return response()->json($emp);
+    }
+    public function editPpdb(Request $request)
+    {
+        $id = $request->id;
+        $ppdb = PpdbBanner::find($id);
+        return response()->json($ppdb);
+    }
+    public function updateBanner(Request $request)
+    {
+        if ($request->hasFile('img')) {
+
+            $request->validate([
+                'img' => 'required|mimes:jpeg,png,jpg|max:2048'
+            ]);
+
+            $path = "images/album/slider/";
+            $file = $request->file('img');
+            $filename = $file->getClientOriginalName();
+            $new_filename = time() . '' . $filename;
+            $upload = Storage::disk('public')->put($path . $new_filename, (string) file_get_contents($file));
+
+            $post_thumbnails_path = $path . 'thumbnails';
+            if (!Storage::disk('public')->exists($post_thumbnails_path)) {
+                Storage::disk('public')->makeDirectory($post_thumbnails_path, 0755, true, true);
+            }
+
+            if ($upload) {
+
+                $old_post_image = PpdbBannerSecond::find($request->emp_id)->img;
+                if ($old_post_image != null && Storage::disk('public')->exists($path . $old_post_image)) {
+                    Storage::disk('public')->delete($path . $old_post_image);
+
+                }
+
+                $post = PpdbBannerSecond::find($request->emp_id);
+                $post->img = $new_filename;
+                $saved = $post->save();
+
+                if ($saved) {
+                    return response()->json(['code' => 1, 'msg' => 'Second Banner has been successfuly updated.']);
+                } else {
+                    return response()->json(['code' => 3, 'msg' => 'Something went wrong, for updating post.']);
+                }
+            } else {
+                return response()->json(['code' => 3, 'msg' => 'Error in uploading image.']);
+            }
+        } else {
+
+            $post = PpdbBannerSecond::find($request->emp_id);
+            $post->action = $request->action;
+            $saved = $post->save();
+            if ($saved) {
+                return response()->json(['code' => 1, 'msg' => 'Second Banner has been successfuly updated.']);
+            } else {
+                return response()->json(['code' => 3, 'msg' => 'Something went wrong, for updating Second Banner.']);
+            }
+        }
+    }
+    public function updatePpdb(Request $request)
+    {
+        if ($request->hasFile('img1')) {
+
+            $request->validate([
+                'img1' => 'required|mimes:jpeg,png,jpg|max:2048'
+            ]);
+
+            $path = "images/album/slider/";
+            $file = $request->file('img1');
+            $filename = $file->getClientOriginalName();
+            $new_filename = time() . '' . $filename;
+            $upload = Storage::disk('public')->put($path . $new_filename, (string) file_get_contents($file));
+
+            $post_thumbnails_path = $path . 'thumbnails';
+            if (!Storage::disk('public')->exists($post_thumbnails_path)) {
+                Storage::disk('public')->makeDirectory($post_thumbnails_path, 0755, true, true);
+            }
+
+            if ($upload) {
+
+                $old_post_image = PpdbBanner::find($request->ppdb_id)->img;
+                if ($old_post_image != null && Storage::disk('public')->exists($path . $old_post_image)) {
+                    Storage::disk('public')->delete($path . $old_post_image);
+
+                }
+
+                $post = PpdbBanner::find($request->ppdb_id);
+                $post->img1 = $new_filename;
+                $saved = $post->save();
+
+                if ($saved) {
+                    return response()->json(['code' => 1, 'msg' => 'Second Banner has been successfuly updated.']);
+                } else {
+                    return response()->json(['code' => 3, 'msg' => 'Something went wrong, for updating post.']);
+                }
+            } else {
+                return response()->json(['code' => 3, 'msg' => 'Error in uploading image.']);
+            }
+        } else {
+
+            $post = PpdbBanner::find($request->ppdb_id);
+            $post->action = $request->action;
+            $saved = $post->save();
+            if ($saved) {
+                return response()->json(['code' => 1, 'msg' => 'Second Banner has been successfuly updated.']);
+            } else {
+                return response()->json(['code' => 3, 'msg' => 'Something went wrong, for updating Second Banner.']);
+            }
         }
     }
 }

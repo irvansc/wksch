@@ -1,11 +1,12 @@
 <div>
+    @livewire('front.ppdb-banner')
     <section id="blog" class="blog">
-        <div class="container" data-aos="fade-up">
+        <div class="container" >
             <div class="section-title">
                 <h2>IDENTITAS SEKOLAH</h2>
             </div>
             <div class="row">
-                <div class="col-lg-8 entries">
+                <div class="col-lg-8 entries" data-aos="fade-up">
                     <div class="content-text">
                         <div id="accordion">
                             <div class="card">

@@ -3,6 +3,7 @@
 @section('pageTitle', isset($pageTitle) ? $pageTitle : 'Agenda')
 
 @section('content')
+@livewire('front.ppdb-banner')
 
 
 <section class="agendas" id="agendas">

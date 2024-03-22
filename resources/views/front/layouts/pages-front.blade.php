@@ -23,10 +23,25 @@
     @livewireStyles()
     @stack('style')
     <link rel="stylesheet" href="{{ asset('front/assets/vendor/lightbox/css/lightbox.min.css') }}" />
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
-<body>
-
+<body onload="hide_loading();">
+    <div class="loading overlay">
+        <svg class="pl" viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+                    <stop offset="0%" stop-color="hsl(210, 71%, 28%, 1)" />
+                    <stop offset="100%" stop-color="hsl(45, 100%, 51%, 1)" />
+                </linearGradient>
+                <linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="hsl(210, 71%, 28%, 1)" />
+                    <stop offset="100%" stop-color="hsl(45, 100%, 51%, 1)" />
+                </linearGradient>
+            </defs>
+            <circle class="pl__ring" cx="100" cy="100" r="82" fill="none" stroke="url(#pl-grad1)" stroke-width="36" stroke-dasharray="0 257 1 257" stroke-dashoffset="0.01" stroke-linecap="round" transform="rotate(-90,100,100)" />
+            <line class="pl__ball" stroke="url(#pl-grad2)" x1="100" y1="18" x2="100.01" y2="182" stroke-width="36" stroke-dasharray="1 165" stroke-linecap="round" />
+        </svg>
+    </div>
 
 @include('front.layouts.inc.topbar')
 
@@ -53,6 +68,30 @@
 <script src="{{ asset('front/assets/js/materialize.min.js') }}"></script>
 <script src="{{ asset('front/assets/vendor/purecounter/purecounter.js') }}"></script>
 <script src="{{ asset('front/assets/vendor/owl-carousel/owl.carousel.js') }}"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script>
+    let fadeTarget = document.querySelector('.loading');
+    function show_loading() {
+        fadeTarget.style.display = 'block';
+    }
+
+    function hide_loading() {
+        fadeTarget.style.display = 'none';
+        let fadeEffect = setInterval(() => {
+            if (!fadeTarget.style.opacity) {
+                fadeTarget.style.opacity = 1;
+            }
+            if (fadeTarget.style.opacity > 0) {
+                fadeTarget.style.opacity -= 0.1;
+            } else {
+                clearInterval(fadeEffect);
+            }
+        }, 200);
+    }
+</script>
 @livewireScripts()
 @stack('scripts')
 </body>

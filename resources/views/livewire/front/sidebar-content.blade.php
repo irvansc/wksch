@@ -1,4 +1,4 @@
-    <div class="col-md-4 sid">
+    <div class="col-md-4 sid" data-aos="slide-left">
         <div class="card mb-3 mt-3">
             <img class="card-img-top" src="{{ kepSek()->img }}" alt="{{ kepSek()->name }}">
             <div class="card-body">
@@ -31,4 +31,11 @@
 
             </div>
         </div>
+        @if ($ppdb->isActive == 0)
+
+        @else
+        <div class="card mb-3 mt-3">
+            <img class="card-img-top" src="storage/images/album/slider/{{ $ppdb->img }}" alt="{{ webInfo()->web_name }}">
+        </div>
+        @endif
     </div>

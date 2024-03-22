@@ -1,5 +1,6 @@
 <div>
     <div>
+        @livewire('front.ppdb-banner')
         <section id="guru" class="guru">
             <div class="container">
                 <div class="section-title">

@@ -1,7 +1,7 @@
 <div>
     <!-- hero -->
 
-    <section id="hero-area" class="slideutama">
+    <section id="hero-area" class="slideutama" data-aos="zoom-in">
         <div id="slider-hero-nav"></div>
         <div class="owl-carousel" id="slider-hero">
             @foreach ($su as $slider)
@@ -12,7 +12,7 @@
                 </div>
                 @if ($slider->title != null)
                 <div class="slider-item-content">
-                    <h2>{{ $slider->title  }}</h2>
+                    <h2>{{ $slider->title }}</h2>
                     <p>{{ $slider->desc }}</p>
                     @if ($slider->action_title != null)
                     <a href="{{ $slider->action }}" class="btn btn-slideutama" style="font-size:12px">{{
@@ -37,7 +37,7 @@
         <div class="container-md">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="video-wrapper">
+                    <div class="video-wrapper" data-aos="fade-right">
                         <div class="embed-responsive embed-responsive-16by9">
                             @if (!kepSek()->video_url)
                             <iframe class="embed-responsive-item"
@@ -48,26 +48,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mt-5 sambutan">
-                    <h2>Sambutan Kepala Sekolah</h2>
-                    <p>
-                        {!! Str::limit(kepSek()->desc, 500, '...') !!}
-                    </p>
-                    <style>
+                <div class="col-md-6 mt-5  ">
+                    <div class="sambutan" data-aos="slide-left">
+                        <h2>Sambutan Kepala Sekolah</h2>
+                        <p>
+                            {!! Str::limit(kepSek()->desc, 500, '...') !!}
+                        </p>
+                        <style>
 
-                    </style>
-                    <a href="{{ route('about') }}" class="btn btn-sambutan" style="margin-top: 30px;">Read More</a>
+                        </style>
+                        <a href="{{ route('about') }}" class="btn btn-sambutan" style="margin-top: 30px;">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- END video -->
     <section id="counts" class="counts">
-        <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="container ">
             <div class="row">
 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-                    <div class="count-box">
+                    <div class="count-box " data-aos="slide-down">
                         <i class="bi bi-people" style="color: #f2c808;"></i>
                         <div>
                             <span class="counter" data-count-start="0" data-count-end="{{ $guru }}" data-speed="10">{{
@@ -77,7 +79,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-                    <div class="count-box">
+                    <div class="count-box " data-aos="slide-down">
                         <i class="bi bi-people" style="color: #f2c808;"></i>
                         <div>
                             <span class="counter" data-count-start="0" data-count-end="{{ $guru }}" data-speed="10">{{
@@ -87,7 +89,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-                    <div class="count-box">
+                    <div class="count-box " data-aos="slide-up">
                         <i class="bi bi-people" style="color: #f2c808;"></i>
                         <div>
                             <span class="counter" data-count-start="0" data-count-end="{{ $siswi }}" data-speed="10">{{
@@ -97,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-                    <div class="count-box">
+                    <div class="count-box " data-aos="slide-up">
                         <i class="bi bi-people" style="color: #f2c808;"></i>
                         <div>
                             <span class="counter" data-count-start="0" data-count-end="{{ $alumni }}" data-speed="10">{{
@@ -112,7 +114,7 @@
 
     <section id="hero-pres">
         <div id="slider-tools-4"></div>
-        <div class="container">
+        <div class="container" data-aos="fade-up">
             <div class="section-title">
                 <h2>PRESTASI</h2>
             </div>
@@ -124,7 +126,7 @@
                     </div>
 
                     @if (!$item->desc)
-                        {{-- kosong --}}
+                    {{-- kosong --}}
                     @else
                     <div class="item-content">
                         <h2>{{ $item->title }}</h2>
@@ -157,8 +159,12 @@
 
             <div class="row">
 
-                <div class="col-lg-6">
-                    <img src="{{ asset('front/assets/img/features.png') }}" class="img-fluid" alt="">
+                <div class="col-lg-6 ">
+                    <center>
+
+                        <img src="{{ asset('/back/dist/img/direktori/extracurricular.png') }}"
+                            alt="{{ webInfo()->web_name }}" style="width: 300px">
+                    </center>
                 </div>
 
                 <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
@@ -251,7 +257,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <div class="bot-gal h-gal ho-event-mob-bot-sp">
+                    <div class="bot-gal h-gal ho-event-mob-bot-sp" data-aos="fade-right">
                         <h4>Photo Gallery</h4>
                         <ul>
                             @foreach ($fotos->take(6) as $foto)
@@ -266,7 +272,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="bot-gal h-vid ho-event-mob-bot-sp">
+                    <div class="bot-gal h-vid ho-event-mob-bot-sp" data-aos="fade-up">
                         <h4>Video Gallery</h4>
                         @foreach ($videos as $item)
 
@@ -275,7 +281,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card mt-3 mb-3">
+                    <div class="card mt-3 mb-3" data-aos="fade-left">
 
                         <div class="card-header" style="background-color: #15477a; color: #fff">
                             Recent Post

@@ -137,6 +137,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
             Route::get('events/list', [EventController::class, 'listEvents'])->name('events.list');
             Route::resource('events', EventController::class);
+
+            Route::view('documentation','back.pages.documentation')->name('documentation');
+            Route::view('licensi','back.pages.licensi')->name('licensi');
+
+            Route::view('ppdb-banner','back.pages.ppdb-banner')->name('ppdb-banner');
+            Route::get('/edit', [AdminController::class, 'editBanner'])->name('edit-banner');
+            Route::post('/update', [AdminController::class, 'updateBanner'])->name('update-banner');
+            Route::get('/edit-banner', [AdminController::class, 'editPpdb'])->name('edit-ppdb');
+            Route::post('/update-banner', [AdminController::class, 'updatePpdb'])->name('update-ppdb');
         });
 
 
